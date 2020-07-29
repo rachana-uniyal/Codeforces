@@ -1,0 +1,17 @@
+from collections import defaultdict
+t = int(input())
+for _ in range(t):
+     n, k= map(int, input().split())
+     a = list(map(int, input().split()))
+     d = defaultdict(int)
+     for i in a:
+         x = k - (i%k)
+         if x == k:
+             continue
+         else:
+             d[x] += 1
+     c = 0
+     for i in d:
+          x = (i+1) + ((d[i]-1)*k)
+          c = max(c,x)
+     print(c)
