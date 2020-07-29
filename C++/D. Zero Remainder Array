@@ -1,0 +1,51 @@
+
+#include<bits/stdc++.h>
+using namespace std;
+
+
+void solve()
+ {
+      int n ;
+      long long k,x;
+        cin>>n >>k;
+       map<long long, long long> mp; 
+        for(int i = 0 ; i<n ; i++)
+        {
+        	cin>>x;
+        	x%=k;
+        	if(x)
+        		mp[k-x]++;
+        }
+       long long mx = 0; 
+       for(auto it = mp.begin(); it!=mp.end() ; it++)
+       {
+           long long x = (it->second -1)*k + it->first;
+           mx = max(x,mx);
+
+       } 
+
+       if(mx)
+       {
+       	mx++;
+       }	
+
+     cout<<mx <<"\n";
+     return;   	
+  }
+
+ int main()
+ {
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+
+    int testcase=1 ;
+    cin >> testcase ;
+    while(testcase--)
+    {
+       
+          solve();
+    }
+  
+
+    return 0 ;
+}
